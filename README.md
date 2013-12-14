@@ -26,6 +26,29 @@ CLI:
 $ hydro --clean-stacks
 ```
 
+Before:
+
+```js
+Error: test
+    at Object.<anonymous> (/Users/vesln/Code/hydro-clean-stacks/test/fixtures/1.js:2:9)
+    at SyncTest.exec (/Users/vesln/Code/hydro-clean-stacks/node_modules/hydro/lib/hydro/test/sync.js:32:13)
+    at /Users/vesln/Code/hydro-clean-stacks/node_modules/hydro/lib/hydro/test/base.js:105:10
+    at EventEmitter.emit (/Users/vesln/Code/hydro-clean-stacks/node_modules/hydro/node_modules/evts/lib/evts.js:46:26)
+    at Base.run (/Users/vesln/Code/hydro-clean-stacks/node_modules/hydro/lib/hydro/test/base.js:101:11)
+    at next (/Users/vesln/Code/hydro-clean-stacks/node_modules/hydro/lib/hydro/suite/index.js:58:52)
+    at EventEmitter.emit (/Users/vesln/Code/hydro-clean-stacks/node_modules/hydro/node_modules/evts/lib/evts.js:46:26)
+    at Suite.run (/Users/vesln/Code/hydro-clean-stacks/node_modules/hydro/lib/hydro/suite/index.js:62:11)
+    at next (/Users/vesln/Code/hydro-clean-stacks/node_modules/hydro/lib/hydro/suite/index.js:58:52)
+    at EventEmitter.emit (/Users/vesln/Code/hydro-clean-stacks/node_modules/hydro/node_modules/evts/lib/evts.js:46:26)
+```
+
+After:
+
+```js
+Error: test
+    at Object.<anonymous> (/Users/vesln/Code/hydro-clean-stacks/test/fixtures/1.js:2:9)
+```
+
 ## Installation
 
 #### npm:
