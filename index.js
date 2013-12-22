@@ -7,7 +7,7 @@
  */
 
 module.exports = function(hydro) {
-  if (!hydro.get('clean-stacks')) return;
+  if (!hydro.get('cleanStacks')) return;
 
   hydro.on('post:test', function(test) {
     if (test.status !== 'failed') return;
