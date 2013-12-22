@@ -8,9 +8,13 @@ test('clean stacks', function(done) {
     attach: global,
     plugins: [plugin],
     suite: 'clean-stacks',
-    'clean-stacks': true,
-    proxies: { 'spec': 'addTest' },
-    tests: [__dirname + '/fixtures/1.js']
+    cleanStacks: true
+  });
+
+  hydro.setup();
+
+  hydro.addTest('fail', function() {
+    throw new Error('test');
   });
 
   hydro.on('post:all', function() {
