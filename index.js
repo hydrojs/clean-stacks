@@ -7,7 +7,7 @@
  */
 
 module.exports = function(hydro) {
-  if (!hydro.get('cleanStacks')) return;
+  if (hydro.get('cleanStacks') === false) return;
 
   hydro.on('post:test', function(test) {
     if (test.status !== 'failed') return;
@@ -17,12 +17,4 @@ module.exports = function(hydro) {
     });
     test.error.stack = stack.join('\n');
   });
-};
-
-/**
- * CLI flags.
- */
-
-module.exports.flags = {
-  '--clean-stacks': 'remove hydro entries from error stacks'
 };

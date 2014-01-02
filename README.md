@@ -16,14 +16,7 @@ Config:
 ```js
 hydro.set({
   plugins: ['hydro-clean-stacks'],
-  'clean-stacks': true
 });
-```
-
-CLI:
-
-```bash
-$ hydro --clean-stacks
 ```
 
 Before:
