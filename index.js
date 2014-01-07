@@ -24,6 +24,8 @@ module.exports = function(hydro) {
     if (test.status !== 'failed') return;
     if (!test.error.stack) return;
 
+    test.error.origStack = test.error.stack;
+
     var stack = test.error.stack.split('\n').filter(function(line) {
       return ignore.filter(function(pattern) {
         return line.indexOf(pattern) !== -1;
