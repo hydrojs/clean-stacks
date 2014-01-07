@@ -14,13 +14,14 @@ test('clean stacks', function(done) {
   hydro.setup();
 
   hydro.addTest('fail', function() {
-    throw new Error('test');
+    assert(false);
   });
 
   hydro.on('post:all', function() {
     var test = hydro.tests()[0];
     test.error.stack.split('\n').forEach(function(line) {
       assert(!/node_modules\/hydro\//.test(line));
+      assert(!/node_modules\/chai\//.test(line));
     });
     done();
   });

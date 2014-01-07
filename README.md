@@ -7,7 +7,7 @@ version](https://badge.fury.io/js/hydro-clean-stacks.png)](http://badge.fury.io/
 
 ## Synopsis
 
-Remove hydro entires from error stacks
+Remove hydro & chai.js entires from error stacks
 
 ## Usage
 
@@ -40,6 +40,24 @@ After:
 ```js
 Error: test
     at Object.<anonymous> (/Users/vesln/Code/hydro-clean-stacks/test/fixtures/1.js:2:9)
+```
+
+### Disable clean stacks
+
+```js
+hydro.set({
+  plugins: ['hydro-clean-stacks'],
+  cleanStacks: false,
+});
+```
+
+### Add a custom list with patterns to ignore
+
+```js
+hydro.set({
+  plugins: ['hydro-clean-stacks'],
+  ignore: ['node_modules/simple-assert']
+});
 ```
 
 ## Installation

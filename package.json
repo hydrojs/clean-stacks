@@ -2,7 +2,7 @@
   "name": "hydro-clean-stacks",
   "version": "0.1.0",
   "description": "Remove hydro entires from error stacks",
-   "keywords": [
+  "keywords": [
     "hydroplugin",
     "hydro",
     "clean stacks"
@@ -24,8 +24,9 @@
     "coveralls": "~2.3.0",
     "istanbul": "~0.1.46",
     "hydro": "*",
-    "simple-assert": "*",
-    "hydro-simple": "*"
+    "hydro-simple": "*",
+    "chai": "~1.8.1",
+    "hydro-chai": "~0.1.3"
   },
   "author": "Veselin Todorov <hi@vesln.com>",
   "license": "MIT"

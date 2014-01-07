@@ -8,14 +8,18 @@
 module.exports = function(hydro) {
   hydro.set({
     attach: global,
+    chai: {
+      styles: 'assert',
+      stack: true
+    },
     proxies: {
       test: 'addTest'
     },
+    plugins: [
+      'hydro-chai',
+    ],
     suite: 'hydro-clean-stacks',
     formatter: 'hydro-simple',
-    globals: {
-      assert: require('simple-assert')
-    },
     tests: [
       'test/*.js'
     ]
