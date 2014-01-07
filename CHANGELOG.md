@@ -1,4 +1,11 @@
 
+0.2.0 / 2014-01-07
+==================
+
+  * Store the original stack
+  * Ignore chai.js stack entires by default
+  * Support custom ignore patterns
+
 0.1.0 / 2014-01-02
 ==================
 
