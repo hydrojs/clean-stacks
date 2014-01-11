@@ -17,21 +17,32 @@ module.exports = function(hydro) {
     return;
   }
 
-  var defaults = ['node_modules/hydro', 'node_modules/chai'];
+  var defaults = ['node_modules/chai'];
   var ignore = (hydro.get('cleanStacks') || {}).ignore || defaults;
 
   hydro.on('post:test', function(test) {
     if (test.status !== 'failed') return;
-    if (!test.error.stack) return;
+    var error = test.error;
+    if (!error.stack) return;
 
-    test.error.origStack = test.error.stack;
+    error.origStack = error.stack;
+    var stack = error.stack.split('\n')
+    var noise = error.noise.split('\n').slice(2)
+    // have to go line by line in case the errors stack
+    // is being limited to a small number of frames
+    var clean = stack.filter(function(line) {
+      return noise.indexOf(line) < 0;
+    });
 
-    var stack = test.error.stack.split('\n').filter(function(line) {
+    // remove test.exec() frame
+    if (clean.length < stack.length) clean.pop();
+
+    if (ignore) clean = clean.filter(function(line) {
       return ignore.filter(function(pattern) {
         return line.indexOf(pattern) !== -1;
       }).length == 0;
     });
 
-    test.error.stack = stack.join('\n');
+    error.stack = clean.join('\n');
   });
 };

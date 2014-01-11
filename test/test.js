@@ -19,6 +19,7 @@ test('clean stacks', function(done) {
 
   hydro.on('post:all', function() {
     var test = hydro.tests()[0];
+    console.log(test.error.stack);
 
     test.error.stack.split('\n').forEach(function(line) {
       assert(!/node_modules\/hydro\//.test(line));
