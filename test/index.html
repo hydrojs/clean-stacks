@@ -1,0 +1,30 @@
+
+<title>hydro-clean-stacks tests</title>
+<link rel="stylesheet" href="../node_modules/hydro-html/index.css">
+
+<div id="hydro"></div>
+
+<script>
+  var hydro = new(require('hydro'))
+  global = window
+
+  hydro.set({
+    suite: 'hydro-clean-stacks',
+    formatter: require('hydro-html'),
+    plugins: [require('hydro-chai')],
+    chai: {
+      chai: require('chai'),
+      styles: 'assert',
+      stack: true
+    },
+    proxies: {
+      test: 'addTest'
+    }
+  })
+
+  hydro.setup()
+
+  require('./test')
+
+  hydro.run()
+</script>
